@@ -1,0 +1,117 @@
+﻿// See https://aka.ms/new-console-template for more information
+//Console.WriteLine("Hello, World!");
+/*On the next day of class, the trainer gave an introduction in the concept of 
+constructors to his students. The trainer tasked the students with developing a library 
+management system using the constructor concept. As part of the system, the students need 
+to implement a Book class that stores the book details, including the title, author, 
+and number of pages. The Book class should have a constructor that initializes the book 
+details upon creation.
+ Help them to complete the task using your C# coding skills.
+Functionalities:
+In class Book, implement the below-given fields, constructors and methods.
+    Data Type
+  Field Name
+    string
+  title
+    string
+  author
+    int
+  numPages
+    DateTime
+  dueDate
+    DateTime
+  returnedDate
+    Constructor 
+   Description
+    Default Constructor
+ In the class Book implement the default constructor.
+    Parameterized Constructor
+ In the class Book implement the  Parameterized  constructor for assigning values to book 
+ class fields.
+In this constructor, pass the parameters in the below-given order.
+title, author, numPages, dueDate, returnedDate
+    Method
+   Description
+   public double AveragePagesReadPerDay(int daysToRead)
+ This method is used to find the average number of pages read per day and return it.
+   public double CalculateLateFee(double dailyLateFeeRate)
+ This method is used to calculate the late fee amount and return it.
+ Formula :
+Average Pages Read Per Day = numPages / daysToRead
+Late Fee = Number of days late * dailyLateFeeRate
+Number of days late = returnedDate - dueDate
+In Program class - Main method,
+1.    Get the values from the user as per the Sample Input.
+2.   Call the methods accordingly and display the result as per the Sample Output.
+Note:
+Keep the methods and classes as public.
+Please read the method rules clearly.
+Do not use Environment.Exit() to terminate the program.
+Do not change the given code template.
+Summary :
+Through working on this task, they have learned about constructors in C#.
+Constructors in C# are special methods that are called when an object of a class is created. 
+They are used to initialize the object's fields and properties to default or specific values.
+Sample Input :
+Enter the title
+A TIME TO KILL
+Enter the author
+John Grisham
+Enter the number of pages
+500
+Enter the due date
+04/20/2023
+Enter the return date
+04/24/2023
+Enter the days to read
+150
+Enter the daily late feeRate
+30
+Sample Output :
+Average Pages Read Per Day : 3
+Late Fee : 120*/
+
+
+using System;
+namespace LibrarymanagementSystem;
+public class Program
+{
+    public static void Main()
+    {
+        Console.ForegroundColor = ConsoleColor.DarkGreen;
+        Book book;
+        System.Console.WriteLine("Enter the title");
+        string title = Console.ReadLine();
+
+        System.Console.WriteLine("Enter the author");
+        string author = Console.ReadLine();
+
+        System.Console.WriteLine("Enter the number of pages");
+        int numPages = int.Parse(Console.ReadLine());
+
+        System.Console.WriteLine("Enter the due date");
+        DateTime dueDate = DateTime.Parse(Console.ReadLine());
+
+        System.Console.WriteLine("Enter the return date");
+        DateTime returnedDate = DateTime.Parse(Console.ReadLine());
+
+        book = new Book(title,author,numPages,dueDate,returnedDate);
+
+        Console.ForegroundColor = ConsoleColor.White;
+        System.Console.WriteLine("Enter the days to read");
+        int daysToRead = int.Parse(Console.ReadLine());
+
+        System.Console.WriteLine("Enter the daily late fee rate");
+        double dailyLateFeeRate = double.Parse(Console.ReadLine());
+
+        double AveragePagesReadPerDay = book.AveragePagesReadPerDay(daysToRead);
+        double LateFee = book.CalculateLateFee(dailyLateFeeRate);
+
+        Console.ForegroundColor = ConsoleColor.Magenta;
+        System.Console.WriteLine($"Average Pages Read Per Day : {AveragePagesReadPerDay}");
+        System.Console.WriteLine($"Late Fee : {LateFee}");
+
+
+
+    }
+}
